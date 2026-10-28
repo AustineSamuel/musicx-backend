@@ -1,0 +1,26 @@
+package com.musicx.musicx;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+
+@SpringBootTest
+class MusicxApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+	@Test
+	void indexReturnsHelloWorld() throws Exception {
+		MockMvc mockMvc = standaloneSetup(new MusicxApplication()).build();
+
+		mockMvc.perform(get("/"))
+				.andExpect(content().string("Hello, World!"));
+	}
+
+}
